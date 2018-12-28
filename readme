@@ -1,0 +1,13 @@
+#查看GPU使用
+##########################################################
+export PATH="$PATH:/usr/local/cuda-9.2/bin"
+export LD_LIBRARY_PATH="/usr/local/cuda-9.2/lib64"
+watch -n 1 -d nvidia-smi
+
+# 启动训练
+export PYTHON_ROOT=/opt/Python_gpu
+export PATH=${PYTHON_ROOT}/bin/:$PATH
+export LD_LIBRARY_PATH=:/usr/local/cuda-9.2/lib64:/usr/local/lib
+export CUDA_VISIBLE_DEVICES=1
+cd /data/home/deeplearn/pytorch-workspaces/pytorch-app/src
+python torchvision_demo.py
