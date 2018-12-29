@@ -109,7 +109,7 @@ def main(mode="train", resume=False):
                                  ])),
             batch_size=batch_size,
             shuffle=True,
-            num_workers=10,
+            num_workers=4,  # 提取数据进程数
             pin_memory=True)
 
         val_loader = data.DataLoader(
